@@ -1,0 +1,18 @@
+extends templates/layout
+
+
+//- Variables
+block append vars
+  - var lang                  = 'nl'
+  - var pageTitle             = '| pageTitle'
+  - var pageDescription       = 'Description'
+  - var bodyClass             = ''
+
+
+
+
+
+block contentMain
+  include templates/views/sections/header
+  //- include tools/kitchensink
+  include templates/views/sections/footer

@@ -1,0 +1,24 @@
+{
+  "name": "SRDA",
+  "version": "0.0.1",
+  "authors": [
+    "JJ"
+  ],
+  "description": "srda",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "jerry7722@hotmail.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}

@@ -1,0 +1,11 @@
+// ==========================================================================
+// Extends and Helpers
+// ==========================================================================
+
+%borderbox { box-sizing: border-box; }
+
+%left { float: left; }
+%right { float: right; }
+%clear { @include clearfix(); }
+
+%transition { transition: if(variable-exists(base-transition), $base-transition, 'all .3s ease');}

@@ -1,0 +1,65 @@
+{
+  "projectURL": "mynewawesomeapp.localhost",
+  "browsersync": {
+    "server": "website"
+  },
+  "postcss": {
+    "src": "website/assets/styles/style.css",
+    "build": "website/assets/styles/"
+  },
+  "images": {
+    "src": "src/img/**/*",
+    "build": "website/assets/images/"
+  },
+  "html": {
+    "src": "website/**/*.html",
+    "build": "website/"
+  },
+  "pug": {
+    "src": "src/pug/*.pug",
+    "watch": "src/pug/**/*.pug",
+    "build": "website/"
+  },
+  "tasks": {
+    "main": [
+      "html",
+      "images",
+      "scripts",
+      "styles"
+    ],
+    "default": [
+      "main",
+      "watch",
+      "browser-sync"
+    ],
+    "build": [
+      "main",
+      "html-build",
+      "scripts-build",
+      "styles-build",
+      "removeDevFiles",
+      "svg"
+    ]
+  },
+  "styles": {
+    "src": "src/scss/style.scss",
+    "src_files": "src/scss/**/*.scss",
+    "build_srcsmap": "website/assets/styles/",
+    "build": "website/assets/styles/",
+    "src_lib": "website/assets/styles/**/*.css",
+    "build_lib": "website/assets/styles/"
+  },
+  "prefix": "prfx-",
+  "browsers": "last 3 versions, > 1%",
+  "scripts": {
+    "src": "coffee/js/**/*.coffee",
+    "build": "website/assets/js",
+    "src_lib": "website/assets/js/venodr/**/*.js",
+    "build_lib": "website/assets/js/venodr/"
+  },
+  "svgicons": {
+    "spriteName": "icon-sprite",
+    "src": "src/icons/icon-sprite/**/*.svg",
+    "build": "website/assets/images/svg/"
+  }
+}
