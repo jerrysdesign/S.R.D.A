@@ -28,7 +28,12 @@ $gutter: 40px;
   margin: 0 auto;
   @include pie-clearfix;
 }
-
+.container-full-width {
+  min-width: 990px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include pie-clearfix;
+}
 .row {
 	@include container;
   @include pie-clearfix;
