@@ -1,0 +1,36 @@
+nav.side-nav
+  ul
+    li
+      a(src='javascript:;')
+        span.fulljustify 叢集計畫
+      // secondary
+      ul(class="forms-list side-nav-secondary")
+        -for (var i = 1; i < 6; i++)
+          li
+            input(type="checkbox" name="checkbox-1" id="checkbox-1")
+            label(for="checkbox-1") Check #{i}
+        nav(class='utlility-link')
+          ul
+            li
+              a(href='javascript:;') 顯示更多...
+            li
+              a(href='javascript:;') 重新篩選
+
+    li
+      a(src='javascript:;')
+        span.fulljustify 個別型計畫
+      // secondary
+      ul(class="forms-list side-nav-secondary")
+        -for (var i = 1; i < 6; i++)
+          li
+            input(type="checkbox" name="checkbox-1" id="checkbox-1")
+            label(for="checkbox-1") Check #{i}
+        nav(class='utlility-link')
+          ul
+            li
+              a(href='javascript:;') 顯示更多...
+            li
+              a(href='javascript:;') 重新篩選
+    li
+      a(src='javascript:;')
+        span.fulljustify 執行年度

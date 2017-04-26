@@ -1,0 +1,814 @@
+//************************
+//    Global mixins
+//************************
+
+
+// -------------------------------------------------------
+// List styles
+// -------------------------------------------------------
+
+// Mixins for list style types
+@mixin unordered {
+	list-style-position: outside; 
+	list-style-type: disc;
+}
+
+@mixin unordered-inside {
+	list-style-position: inside; 
+	list-style-type: disc;
+}
+
+@mixin ordered {
+	list-style-position: outside; 
+	list-style-type: decimal;
+}
+
+@mixin ordered-inside {
+	list-style-position: inside; 
+	list-style-type: decimal;
+}
+
+@mixin nobullet {
+	list-style-type: none;
+}
+
+
+// ------------------------------------------------------------
+// Transitions
+// ------------------------------------------------------------
+
+@mixin _transition($prop:all, $duration:0.2s, $timing:ease-in-out, $delay:0s) {
+	@include transition($prop $duration $timing $delay);
+}
+
+
+// ------------------------------------------------------------
+// Link hover styles
+// ------------------------------------------------------------
+
+@mixin link-active-styles {
+	&:hover, &:focus, &:active {
+		@content; 
+	}
+}
+	
+	
+// ------------------------------------------------------------
+// Align things vertically (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
+// ------------------------------------------------------------
+
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+
+// ------------------------------------------------------------
+// Media queries
+// ------------------------------------------------------------
+
+// Reference widths from settings file
+@mixin respond-to($media-min, $IE9: true) {
+	@if $IE9 == true {
+		.lt-ie9 & {
+			@content;
+		}
+		@media screen and (min-width: $media-min) {
+			@content;
+		}
+	}
+	@else {
+		@media screen and (min-width: $media-min) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-to-max($media-max, $IE9: true) {
+	@if $IE9 == true {
+		.lt-ie9 & {
+			@content;
+		}
+		@media screen and (max-width: $media-max - 1px) {
+			@content;
+		}
+	}
+	@else {
+		@media screen and (max-width: $media-max - 1px) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-to-min-max($media-min, $media-max, $IE9: true) {
+	@if $IE9 == true {
+		.lt-ie9 & {
+			@content;
+		}
+		@media screen and (min-width: $media-min) and (max-width: $media-max)  {
+			@content;
+		}
+	}
+	@else {
+		@media screen and (min-width: $media-min) and (max-width: $media-max) {
+			@content;
+		}
+	}
+}
+
+
+// ------------------------------------------------------------
+// Retina images
+// ------------------------------------------------------------
+
+// Usage: Send path, image name, and width and height. 
+// Name retina images [name]2x.
+
+@mixin image-2x($image, $width, $height) {
+	@media (min--moz-device-pixel-ratio: 1.3),
+		(-o-min-device-pixel-ratio: 2.6/2),
+		(-webkit-min-device-pixel-ratio: 1.3),
+		(min-device-pixel-ratio: 1.3),
+		(min-resolution: 1.3dppx) {
+		/* on retina, use image that's scaled by 2 */
+		background-image: url($image);
+		background-size: $width $height;
+	}
+}
+
+
+// ------------------------------------------------------------
+// HEX to RGB
+// ------------------------------------------------------------
+
+// http://codepen.io/sturobson/pen/hdKyv
+
+@mixin rgba($color, $value) {
+	background-color: $color;
+	background-color: rgba($color, $value);
+}
+
+
+// ------------------------------------------------------------
+// Grid 1
+// ------------------------------------------------------------
+
+// Generate columns names span-#
+// Called by: @include grid_columns(#) where # is the amount of columns needed
+// Perfect for use in breakpoints to use different columns
+
+@mixin grid_columns($columns) {
+	@for $i from 1 through $columns {
+		.col-#{$columns}-#{$i}{
+			width: ((100% / $columns)*$i);      
+		}
+	}
+	@for $i from 1 through $columns {
+		.push-#{$columns}-#{$i}{
+			margin-left: ((100% / $columns)*$i);        
+		}
+	}
+	@for $i from 1 through $columns {
+		.pull-#{$columns}-#{$i}{
+			margin-right: ((100% / $columns)*$i);       
+		}
+	}
+	.push-disable#{$columns} {
+		margin-left: 0;     
+	}
+	.pull-disable#{$columns} {
+		margin-right: 0;        
+		
+	}
+	.hide-at#{$columns} {
+		display: none;
+	}
+	.block-show-at#{$columns} {
+		display: block;
+	}
+	.inline-show-at#{$columns} {
+		display: inline;
+		display: inline-block;
+	}
+}
+
+@mixin grid {   
+	// Widths
+	*[class*="col-"] {
+		width: 100%; 
+		display: block;
+	}
+	// Floats
+	*[class*="as-grid"] {
+		float: left;
+		display: inline;
+		display: inline-block;
+	}
+	// Gutters
+	*[class*="with-gutter"] {
+	}
+}
+
+
+// ------------------------------------------------------------
+// Grid 2
+// ------------------------------------------------------------
+
+@mixin block($num) {
+	width: (($gridWidth - ($gridGutterWidth * $num)) / $num / ($gridWidth / 100)) * 1%;
+}
+
+@mixin column($num) {
+	width: (($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * 1%;
+}
+
+@mixin columns($factor, $num) {
+	width: ((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * $factor) + (($gridGutterWidth / ($gridWidth / 100)) * ($factor - 1)) * 1%;
+}
+
+@mixin column-push($num) {
+	left: ((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) + $gridGutterWidth/($gridWidth/100)) * 1%;
+}
+
+@mixin columns-push($factor, $num) {
+	left: (((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * $factor) + (($gridGutterWidth / ($gridWidth / 100)) * ($factor - 1)) + $gridGutterWidth/($gridWidth/100)) * 1%;
+}
+
+
+// ------------------------------------------------------------
+// Image replacement 文字替換圖片
+// ------------------------------------------------------------
+
+// 標準瀏覽器直接1就可以
+// 原生7,8不支援color的transparent，所以采用2;
+
+@mixin ir($height:99) {
+	//1
+	color: transparent;
+	//2
+	font: 0/0 a;
+	text-shadow: none;
+	border: 0 none;
+}
+
+
+// ------------------------------------------------------------
+// SizeView Source
+// ------------------------------------------------------------
+
+// Width × Height. Accepts all units.
+
+@mixin size($size) {
+	$height: nth($size, 1);
+	$width: $height;
+
+	@if length($size) > 1 {
+		$height: nth($size, 2);
+	}
+	@if $height == auto or (type-of($height) == number and not unitless($height)) {
+		height: $height;
+	}
+	@if $width == auto or (type-of($width) == number and not unitless($width)) {
+		width: $width;
+	}
+}
+
+
+// ------------------------------------------------------------
+// Finishing later
+// ------------------------------------------------------------
+
+@mixin gradient($startColor: #555, $endColor: #333) {
+	@include filter-gradient($startColor, $endColor);
+	@include background-image(linear-gradient($startColor, $endColor));
+}
+
+@mixin selection($r, $g, $b) {
+	::selection {
+		background: rgb($r, $g, $b);
+	}
+	::-moz-selection {
+		background: rgb($r, $g, $b);
+	}
+	img::selection {
+		background: transparent;
+	}
+	img::-moz-selection {
+		background: transparent;
+	}
+}
+
+@mixin placeholder($color: $input-color-placeholder) {
+  :-moz-placeholder            { color: $color; } // Firefox 4-18
+  ::-moz-placeholder           { color: $color; } // Firefox 19+
+  :-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
+  ::-webkit-input-placeholder  { color: $color; padding: 2px; } // Safari and Chrome
+}
+
+// Retina
+@mixin image-retina-image($image) {
+  background-image: image-url($image);
+
+  // If we have a retina image then add styles for it too
+  @if file_exists(retina_filename($image)) {
+	@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (    -ms-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2),
+	only screen and (                min-resolution: 192dpi),
+	only screen and (                min-resolution: 2dppx) {
+	  @include background-size(image-width($image) auto);
+	  background-image: image-url(retina_filename($image));
+	}
+  }
+}
+
+
+// ------------------------------------------------------------
+// Mixin & Helper & Include
+// ------------------------------------------------------------
+
+// Type and rhythm
+
+@mixin text-center {
+	text-align: center;
+}
+
+@mixin text-left {
+	text-align: left;
+}
+
+@mixin text-right {
+	text-align: right;
+}
+
+@mixin text-uppercase {
+	text-transform: uppercase;
+}
+
+@mixin text-lowercase {
+	text-transform: uppercase;
+}
+
+@mixin nowrap {
+	white-space: nowrap;
+}
+
+@mixin zero {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin clear {
+	clear: both;
+}
+
+@mixin last {
+	margin-right: 0;
+}
+
+@mixin pause {
+	margin-bottom: 0.75em;
+}
+
+@mixin end {
+	margin-bottom: 0;
+}
+
+@mixin no-leader {
+	margin-top: 0;
+}
+
+@mixin no-trailer {
+	margin-bottom: 0;
+}
+
+@mixin handle {
+	cursor: move;
+}
+
+@mixin normal {
+	font-weight: normal;
+}
+
+@mixin bold {
+	font-weight: bold;
+}
+
+@mixin italic {
+	font-style: italic;
+}
+
+@mixin req {
+	font-weight: normal;
+	color: $colorRed;
+}
+
+@mixin highlight {
+	background-color: #ffff9e;
+}
+
+@mixin close {
+	padding: 4px 6px;
+	line-height: 1;
+	font-size: 18px;
+	cursor: pointer;
+	color: $black;
+	text-decoration: none;
+	opacity: 0.4;
+	&:before {
+		content: '\00D7';
+	}
+	&:hover {
+		color: $black;
+		opacity: 1;
+	}
+}
+
+// ------------------------------------------------------------
+// Placeholders
+// ------------------------------------------------------------
+
+@mixin is-hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+@mixin is-show {
+	display: block;
+}
+
+@mixin is-show-inline {
+	display: inline;
+	display: inline-block;
+}
+
+@mixin is-table {
+	display: table;
+	width: 100%;
+}
+
+@mixin max-width {
+	max-width: 100%;
+	height: auto;
+}
+
+
+// -------------------------------------------------------
+// Custom
+// -------------------------------------------------------
+
+@mixin fl {
+	@include float-left;
+	display: inline-block;
+	@include pie-clearfix;
+}
+
+@mixin fr {
+	@include float-right;
+	display: inline-block;
+	@include pie-clearfix;
+}
+
+@mixin rf {
+	@include reset-float;
+}
+
+@mixin oh {
+	@include clearfix;
+}
+
+@mixin full {
+	width: 100%;
+}
+// block需有寬度margin左右設定auto才能居中
+@mixin center-block {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center
+}
+
+@mixin is-center-block {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin autoheight {
+	position: relative;
+	&:before {
+		content: "";
+		position: absolute;
+		//z-index: -1;
+		display: block;
+		top: 0;
+		bottom: 0;
+	}
+}
+
+// = List
+// -----------------------------
+
+// form compass
+@mixin reset-list-style {
+	list-style: none;
+}
+
+@mixin reset-list {
+	@include reset-list-style;
+	@include zero;
+}
+
+@mixin list-inline {
+	@include zero;
+	>li, dt, >dd {
+		@include inline-block;
+	}
+}
+
+@mixin reset-list-inline {
+	@include zero;
+	@include reset-list-style;
+	>li, dt, dd {
+		display: inline-block;
+	}
+}
+
+@mixin is-show-inle-block {
+	vertical-align: middle;
+	> div, >li, dd, dt {
+		vertical-align: middle;
+		@include is-show-inline;
+	}
+}
+
+
+// core
+
+@function str-replace($string, $old, $new) {
+	$index: str-index($string, $old);
+	@if $index > 0 and $new != $old {
+		// Doing magic
+	}
+	@return $string;
+}
+
+@function strip-unit($num) {
+	@return ($num / ($num * 0 + 1));
+}
+
+@mixin rem($property, $values...) {
+	$max: length($values);
+	$pxValues: '';
+	$remValues: '';
+
+	@for $i from 1 through $max {
+		@if nth($values, $i) != 'important' {
+
+			// $value: strip-unit(nth($values, $i));
+			$value: nth($values, $i);
+
+			@if unitless($value) == true {
+
+				$pxRounded: round(strip-unit($value) * 16);
+				$pxValues: #{$pxValues + $pxRounded}px;
+				$remValues: #{$remValues + $value}rem;
+
+			} @else {
+
+				$value: strip-unit($value);
+				$pxRounded: $value;
+				$pxValues: #{$pxValues + $pxRounded}px;
+				// $remVal: round($value / 16);
+				$remVal: ($value / 16);
+				$remValues: #{$remValues + $remVal}rem;
+
+			}
+		}
+
+		@if $i < $max {
+			$pxValues: #{$pxValues + " "};
+			$remValues: #{$remValues + " "};
+		}
+
+		@if $i == $max {
+			@if nth($values, $i) == 'important' {
+				$pxValues: #{$pxValues + " !important"};
+				$remValues: #{$remValues + " !important"};
+			}
+		}
+	}
+
+	#{$property}: $pxValues;
+	#{$property}: $remValues;
+}
+
+@mixin clearfix() {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin btn-color($color, $darken: 10%) {
+	background: $color;
+	&:hover {
+		background: darken($color, $darken);
+	}
+}
+
+@mixin opacity($opacity: 100) {
+	filter: alpha(opacity=$opacity);
+	-moz-opacity: $opacity / 100;
+	opacity: $opacity / 100;
+}
+
+@mixin selection($r, $g, $b) {
+	::selection { background: rgb($r, $g, $b); }
+	::-moz-selection { background: rgb($r, $g, $b); }
+	img::selection { background: transparent; }
+	img::-moz-selection { background: transparent;  }
+}
+
+@mixin box-sizing($box-model) {
+	-webkit-box-sizing: $box-model;
+	-moz-box-sizing: $box-model;
+	box-sizing: $box-model;
+}
+
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin gradient($start: #555, $end: #333) {
+	background-color: mix($start, $end, 60%);
+	background-image: -moz-linear-gradient(top, $start, $end); // FF 3@mixin 6+
+	background-image: -ms-linear-gradient(top, $start, $end); // IE10
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start), to($end)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, $start, $end); // Safari 5@mixin 1+, Chrome 10+
+	background-image: -o-linear-gradient(top, $start, $end); // Opera 11@mixin 10
+	background-image: linear-gradient(top, $start, $end); // The standard
+	// filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@start,@end)); // IE9 and down
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end', GradientType=0); // IE9 and down
+}
+
+@mixin border-top-radius($radius) {
+	border-top-right-radius: $radius;
+	border-top-left-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+	border-bottom-left-radius: $radius;
+	border-top-left-radius: $radius;
+}
+
+@mixin bordered($top-color: #eee, $right-color: #eee, $bottom-color: #eee, $left-color: #eee) {
+	border-top: 1px solid $top-color;
+	border-right: 1px solid $right-color;
+	border-bottom: 1px solid $bottom-color;
+	border-left: 1px solid $left-color;
+}
+
+// @mixin retina-image($path, $w: auto, $h: auto) {
+//   background-image: url($path);
+//   $at2x_path: ~'${path}.replace(/\.\w+$/, function(match) { return "$2x" + match; })';
+//   @return str-replace($new-string, $old, $new);
+//   @media
+//   only screen and (-webkit-min-device-pixel-ratio: 2),
+//   only screen and (   min--moz-device-pixel-ratio: 2),
+//   only screen and (     -o-min-device-pixel-ratio: 2/1),
+//   only screen and (        min-device-pixel-ratio: 2),
+//   only screen and (                min-resolution: 192dpi),
+//   only screen and (                min-resolution: 2dppx) {
+//     background-image: url($at2x_path);
+//     background-size: $w $h;
+//   }
+// }
+
+@mixin transition($transition: all linear .2s) {
+	-moz-transition: $transition;
+	transition: $transition;
+}
+
+@mixin blur($radius) {
+	-webkit-filter: blur($radius);
+	-moz-filter: blur($radius);
+	-ms-filter: blur($radius);
+	filter: blur($radius);
+}
+
+@mixin arrow-top($color: #fff, $size: 5px, $left: 5px) {
+	&:after {
+		bottom: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-bottom-color: $color;
+		border-width: $size;
+		left: $left;
+	}
+}
+
+@mixin arrow-bottom($color: #fff, $size: 5px, $left: 5px) {
+	&:after {
+		top: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-top-color: $color;
+		border-width: $size;
+		left: $left;
+	}
+}
+
+@mixin arrow-left($color: #fff, $size: 5px, $top: 5px) {
+	&:after {
+		right: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-right-color: $color;
+		border-width: $size;
+		top: $top;
+	}
+}
+
+@mixin arrow-right($color: #fff, $size: 5px, $top: 5px) {
+	&:after {
+		left: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-left-color: $color;
+		border-width: $size;
+		top: $top;
+	}
+}
+
+@mixin close($r: 0, $g: 0, $b: 0) {
+	padding: 4px 6px;
+	line-height: 1;
+	font-size: 18px;
+	cursor: pointer;
+	color: rgba($r, $g, $b, 1);
+	text-decoration: none;
+	@include opacity(50);
+	&:before {
+		content: '\00D7';
+	}
+	&:hover {
+		@include opacity(100);
+	}
+}
+
+// Grid
+@mixin block($num) {
+	width: (($gridWidth - ($gridGutterWidth * $num)) / $num / ($gridWidth / 100)) * 1%;
+}
+
+@mixin column($num) {
+	width: (($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * 1%;
+}
+
+@mixin columns($factor, $num) {
+	width: ((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * $factor) + (($gridGutterWidth / ($gridWidth / 100)) * ($factor - 1)) * 1%;
+}
+
+@mixin column-push($num) {
+	left: ((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) + $gridGutterWidth/($gridWidth/100)) * 1%;
+}
+
+@mixin columns-push($factor, $num) {
+	left: (((($gridWidth - ($gridGutterWidth * ($num - 1))) / $num / ($gridWidth / 100)) * $factor) + (($gridGutterWidth / ($gridWidth / 100)) * ($factor - 1)) + $gridGutterWidth/($gridWidth/100)) * 1%;
+}

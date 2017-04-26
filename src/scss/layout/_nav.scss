@@ -1,0 +1,159 @@
+/* =======================
+   Layout/Nav
+   ======================= */
+
+// Sidemenu
+.fulljustify {
+  text-align: justify;
+}
+.fulljustify:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.side-nav {
+  @extend %nav;
+  > ul {
+    > li {
+      > a {
+        font-size: 18px;
+        height: 56px;
+        font-weight: bold;
+        padding: 0 14px 0 14px;
+        border-left: 18px solid $colorGrayDark;
+        cursor: pointer;
+        background-color: $colorGrayLightest;
+        span {
+          padding-top: 18px;
+          display: block;
+          pointer-events: none;
+          color: $colorGrayDark;
+        }
+        &:hover {
+          text-decoration: none;
+          border-left: 18px solid $colorPrimary;
+        }
+        &:before {
+          // content: '';
+          // display: inline-block;
+          // width: 18px;
+          // height: 56px;
+          // background-color: #717171;
+        }
+      }
+    }
+    li + li {
+      margin-top: 16px;
+    }
+  }
+  .side-nav-secondary {
+    @extend .mt-20;
+    li {
+      margin-bottom: 0;
+    }
+    li + li {
+      margin-top: 10px;
+    }
+  }
+  .utlility-link {
+    @extend .mt-10;
+    @extend %navbar;
+    @extend %nav-fullwidth;
+    &:after {}
+    a {
+      color: $colorGrayDarker;
+    }
+  }
+}
+
+// $mainNavColor: #f2ebb0;
+// .main-nav {
+// 	font-size: 1em;
+// 	height: 40px;
+// 	line-height: 40px;
+// 	@extend %breadcrumbs;
+// 	@extend %breadcrumbs-sections;
+// 	li + li:before {
+// 		color: $mainNavColor;
+// 	}
+// 	a {
+// 		color: $mainNavColor;
+// 		padding: 0 1em;
+// 		display: inline-block;
+// 	}
+// }
+// .top-nav {
+// 	@extend %cont-font-size;
+// 	@extend %navbar-right;
+// 	@extend %breadcrumbs;
+// 	@extend %breadcrumbs-sections;
+// 	li + li:before {
+// 		color: $black-80;
+// 	}
+// 	a {
+// 		color: $black-80;
+// 	}
+// }
+// .breadcrumbs {
+// 	@extend %cont-font-size;
+// 	@extend %breadcrumbs;
+// 	margin-top: 10px;
+// 	li + li:before {
+// 		color: $red;
+// 	}
+// 	a {
+// 		color: $red;
+// 	}
+// }
+// .subject-link {
+// 	@extend %cont-font-size;
+// 	display: inline-block;
+// 	margin-top: 68px;
+// 	li {
+// 		display: inline-block;
+// 		margin-left: 5px;
+// 	}
+// 	li > a {
+// 		@extend %is-show;
+// 		padding: 0 5px;
+// 		line-height: 25px;
+// 		border: 1px solid #483c0a;
+// 		background-color: rgba(255,255,255,.5);
+// 	}
+// }
+// //子系統footer 按鈕組件
+// %foot-navbar-space {
+// 	margin-bottom: 5px;
+// }
+// .foot-navbar {
+// 	@extend %navbar;
+// 	@extend %center-block;
+// 	@extend %foot-navbar-space;
+// 	width: 75%;
+// 	li {
+// 		margin: 0 3px;
+// 	}
+// }
+
+// .foot-btn {
+// 	@extend %is-show;
+// 	@include border-radius(3px);
+// 	background-color: #c3b89f;
+// 	border: solid 1px #bca977;
+// 	@include background-image(linear-gradient(to top, #d9d4ba, #fffcee));
+// 	line-height: 22px;
+// 	padding: 0 .5em;
+// }
+// .foot-nav {
+// 	@extend %foot-navbar-space;
+// 	@extend %center-block;
+// 	@extend .top-nav;
+// 	width: 35%;
+// 	clear: both;
+// 	float: none;
+// 	.lt-ie9 & {
+// 		@extend %text-center;
+// 		text-align: center;
+// 		width: 37%;
+// 	}
+// }

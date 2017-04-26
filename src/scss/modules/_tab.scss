@@ -1,0 +1,37 @@
+$functionUtilityColor: #bed7e2;
+.function-utility {
+	// @extend %block;
+	@extend %navbar;
+	@extend %cont-font-size;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	.function-tab {
+		margin-bottom: -1px;
+		z-index: 5;
+		position: relative;
+		li {
+			border: 1px solid $functionUtilityColor;
+			border-bottom: 0;
+			@include border-radius(3px 3px 0 0);
+			& + li {
+				margin-left: 3px;
+			}
+			a {
+				padding: .05em .75em;
+				&.current {
+					color: darken($functionUtilityColor, 25);
+					background: lighten($functionUtilityColor, 10);
+				}
+			}
+		}
+	}
+	
+	.tab-content {
+		z-index: 0;
+		position: relative;
+		background: lighten($functionUtilityColor, 10);
+		border: 1px solid $functionUtilityColor;
+		@extend %block-inner-15;
+	}
+
+}

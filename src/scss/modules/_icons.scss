@@ -1,0 +1,92 @@
+// =======================
+//   Module/Icons
+//   Method by @vtcreative
+//   Documentation : http://goo.gl/kWyRmT
+//   ======================= 
+
+// 再研究怎麼管理csssprite source
+// @import "compass/utilities/sprites";
+// @import "icons/page-control/*.png";
+// @import "icons-2x/page-control/*.png";
+// $sprites: sprite-map("icons/*.png");
+// $sprites2x: sprite-map("icons-2x/*.png");
+
+// @mixin sprite-background($name) {
+//   background-position: sprite-position($sprites, $name);
+//   height: image-height(sprite-file($sprites, $name));
+//   width: image-width(sprite-file($sprites, $name));
+
+//   @media (-webkit-min-device-pixel-ratio: 1.5),
+//          (-o-min-device-pixel-ratio: 3/2),
+//          (min-device-pixel-ratio: 1.5) {
+//     background-position: 0 round(nth(sprite-position($sprites2x, $name), 2) / 2);
+//   }
+// }
+
+
+// @import "icons/page-control/*.png";
+
+// $height: page-control-sprite-height(page-first);
+// $width: page-control-sprite-width(page-first);
+// .icon-first {
+//   @include page-control-sprite(page-first);
+//   &:hover {
+//     @include page-control-sprite(page-first-o);
+//   }
+// }
+// .icon-last {
+//   @include page-control-sprite(page-last);
+//   &:hover {
+//     @include page-control-sprite(page-last-o);
+//   }
+// }
+// .icon-next {
+//   @include page-control-sprite(page-next);
+//   &:hover {
+//     @include page-control-sprite(page-next-o);
+//   }
+// }
+// .icon-prev {
+//   @include page-control-sprite(page-prev);
+//   &:hover {
+//     @include page-control-sprite(page-prev-o);
+//   }
+// }
+// [class^="icon-"],
+// [class*=" icon-"] {
+//   // @import "icons-2x/page-control/*.png";
+//   background-repeat: no-repeat;
+//   @include is-show-inline;
+//   background-image: sprite-url($sprites);
+//   width: $width;
+//   height: $height;
+//   @media (-webkit-min-device-pixel-ratio: 1.5),
+//          (-o-min-device-pixel-ratio: 3/2),
+//          (min-device-pixel-ratio: 1.5) {
+//     background-image: sprite-url($sprites2x);
+//     background-size: ceil(image-width(sprite-path($sprites2x)) / 2) auto;
+//   }
+// }
+
+// @include all-page-control-sprites;
+
+.page-control-sprite, .icon-first, .icon-first:hover, .icon-last, .icon-last:hover, .icon-next, .icon-next:hover, .icon-prev, .icon-prev:hover { background: url('../img/icons/page-control-sb184da0e90.png') no-repeat; }
+
+.page-control-sprite, .icon-first, .icon-first:hover, .icon-last, .icon-last:hover, .icon-next, .icon-next:hover, .icon-prev, .icon-prev:hover { background: url('../img/icons-2x/page-control-s2f46af03d8.png') no-repeat; }
+
+.page-control-sprite, .icon-first, .icon-first:hover, .icon-last, .icon-last:hover, .icon-next, .icon-next:hover, .icon-prev, .icon-prev:hover { background: url('../img/icons/page-control-sb184da0e90.png') no-repeat; }
+
+.icon-first { background-position: 0 -60px; }
+.icon-first:hover { background-position: 0 -20px; }
+
+.icon-last { background-position: 0 -40px; }
+.icon-last:hover { background-position: 0 0; }
+
+.icon-next { background-position: 0 -120px; }
+.icon-next:hover { background-position: 0 -100px; }
+
+.icon-prev { background-position: 0 -140px; }
+.icon-prev:hover { background-position: 0 -80px; }
+
+[class^="icon-"], [class*=" icon-"] { background-repeat: no-repeat; display: inline; display: inline-block; width: 20px; height: 20px; }
+@media (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5) { [class^="icon-"], [class*=" icon-"] { background-image: url('../img/icons-2x-s1f51e68ca5.png'); background-size: 20px auto; } }

@@ -1,0 +1,31 @@
+// =Table
+// -----------------------------------------------------------------------------
+
+%table-bordered {
+  td, th { border: 1px solid #ddd;}
+}
+
+%table-simple {
+  td, th {
+    border: none;
+    padding-left: 0;}
+}
+
+%table-flat {
+  td, th {
+    border: none;
+    padding: 0;
+  }
+}
+
+%table-striped {
+  tbody tr:nth-child(odd) td {
+    background-color: #f8f8f8;
+  }
+}
+%table-hovered {
+  tbody tr:hover td {
+    background-color: #f4f4f4;
+  }
+}
+

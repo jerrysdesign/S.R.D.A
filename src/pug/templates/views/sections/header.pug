@@ -1,2 +1,76 @@
 header.header
-  h1 Header
+  .top-navbar
+    .container
+      nav.top-navbar__nav
+        ul
+          li: a(href='javascript:;') 調查研究專題中心
+          li: a(href='javascript:;') 人文社會科學研究中心
+          li: a(href='javascript:;') 中央研究院
+          li: a(href='javascript:;') English
+  .container
+    .srda-logo
+      img(src='./assets/images/logo.png', alt='SRDA 學術調查研究資料庫')
+    nav.quick-link
+      ul
+        li.quick-link__item: a.login(href='javascript:;') 會員登入
+        li.quick-link__item: a.service(href='javascript:;') 諮詢服務
+        li.quick-link__item: a.about(href='javascript:;') 關於我們
+  .container
+    .searchbar-wrapper
+      form.search_bar
+        input(type='text' placeholder='請輸入關鍵字')
+        .search_dropdown(style='width: 16px;')
+          span 找資料
+          ul
+            li.selected 找資料
+            li 找問卷
+            li 找著作書目
+            li 找站內
+        button(type='submit' value='search') 搜尋
+
+      dl.hot-keyword
+        dt 熱門關鍵詞:
+        dd
+          ul
+            li: a(href='javascript:;') 老人
+            li: a(href='javascript:;') 義工
+            li: a(href='javascript:;') 社會網路
+            li: a(href='javascript:;') 補習班
+            li: a(href='javascript:;') 人文
+  .container
+    .main-nav
+      ul
+        li
+          a(href='javascript:;') 最新消息
+        li
+          a(href='javascript:;') 資料查詢
+          ul
+            li
+              a(href='javascript:;') 資料查詢_SUB
+        li
+          a(href='javascript:;') 線上分析
+        li
+          a(href='javascript:;') 出版品
+          ul
+            li
+              a(href='javascript:;') 出版品_SUB
+        li
+          a(href='javascript:;') 參考資源
+          ul
+            li: a(href='javascript:;') 會員滿意度報告
+            li: a(href='javascript:;') 文件範例
+            li: a(href='javascript:;') 調查常用分類
+            li: a(href='javascript:;') 影音專區
+        li
+          a(href='javascript:;') 資料管理
+          ul
+            li: a(href='javascript:;') 資料典藏
+            li: a(href='javascript:;') 資料取得方式
+            li: a(href='javascript:;') 資料整理方式
+
+        li
+          a(href='javascript:;') 資料捐贈
+          ul
+            li: a(href='javascript:;') 捐贈/交付資料
+            li: a(href='javascript:;') 調查資料均贈說明
+            li: a(href='javascript:;') 科技部資料交付說明

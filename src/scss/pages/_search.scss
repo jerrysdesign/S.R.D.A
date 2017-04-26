@@ -1,0 +1,67 @@
+.adv-search-panel,
+.questionnaire-search-panel {
+  .units-row {
+    margin-bottom: .75em;
+  }
+  .content-secondary-menu {
+    font-size: 15px;
+    a {
+      &:link {
+        color: $colorGrayDark;
+      }
+      &:hover {
+        color: $colorGrayDarkest;
+      }
+    }
+  }
+  .hot-keyword {
+    margin-left: auto;
+    padding: 0;
+    a {
+      color: $colorGrayDark;
+    }
+  }
+  .table-list {
+    margin: 0;
+    dt {
+      width: auto;
+      font-weight: bold;
+    }
+  }
+  dt {
+    font-weight: bold;
+  }
+  dt,
+  dd {
+    padding: 5px;
+    margin: 0;
+  }
+  .wall {
+    padding: 40px 100px;
+  }
+}
+.search-result-panel {
+  .wall {
+    padding: 20px 40px;
+  }
+}
+.search-keyword {
+  margin-bottom: 20px;
+}
+.search-resulr--info {
+  h3 {
+    font-size: 16px;
+    margin-bottom: 1em;
+  }
+  a {
+    color: $colorPrimary;
+  }
+  .show-detail {
+    padding-left: 24px;
+    background-image: url('../images/icon-details-show.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    display: block;
+    margin-top: 10px;
+  }
+}

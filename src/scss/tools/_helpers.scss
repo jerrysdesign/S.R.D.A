@@ -1,0 +1,240 @@
+/* =========================== Helpers =========================== */
+
+// ------------------------------------------------------------
+// Type and rhythm
+// ------------------------------------------------------------
+
+// Fonts
+%serif      {   font-family: $serif }       // Serif Fonts
+%sans-serif {   font-family: $sansSerif }   // Sans-Serif Fonts
+%monospace  {   font-family: $monospace }   // Monospace Fonts
+
+%super-small, .super-small {
+	font-size:$baseFontSize - 5px; // 11px
+}
+%small, .small {
+	font-size:$baseFontSize - 3px; // 13px
+}
+%lead, .lead {
+	font-size:$baseFontSize + 4px; // 20px
+}
+%big, .big{
+	color:$baseFontSize + 4px; // 20px
+}
+%quote, .quote {
+	font-size:$baseFontSize + 2px; // 18px
+}
+
+%text-center, .text-center {
+	@include text-center;
+}
+
+%text-left, .text-left {
+	@include text-left;
+}
+
+%text-right, .text-right {
+	@include text-right;
+}
+
+%text-uppercase, .text-uppercase {
+	@include text-uppercase;
+}
+
+%text-lowercase, .lowercase {
+	@include text-lowercase;
+}
+
+%nowrap, .nowrap {
+	@include nowrap;
+}
+
+%zero, .zero {
+	@include zero;
+}
+
+%clear, .clear {
+	@include clear;
+}
+
+%last, .last {
+	@include last;
+}
+
+%pause, .pause {
+	@include pause;
+}
+
+%end, .end {
+	@include end;
+}
+
+%no-leader, .no-leader {
+	@include no-leader;
+}
+
+%no-trailer, .no-trailer {
+	@include no-trailer;
+}
+
+%handle, .handle {
+	@include handle;
+}
+
+%normal, .normal {
+	@include normal;
+}
+
+%bold, .bold {
+	@include bold;
+}
+
+%italic, .italic {
+	@include italic;
+}
+
+%req,
+.req,
+.required {
+	@include req;
+}
+
+%highlight, .highlight {
+	@include highlight;
+}
+
+%close, .close {
+	@include close;
+}
+
+// ------------------------------------------------------------
+// Placeholders
+// ------------------------------------------------------------
+
+// Show / hides
+.is-hidden, %is-hidden {
+	@include is-hidden;
+}
+
+.is-show, %is-show {
+	@include is-show;
+}
+
+.is-show-inline, %is-show-inline {
+	@include is-show-inline;
+}
+
+.is-table, %is-table {
+	@include is-table;
+}
+
+// Clearfixes
+%clearfix {
+  @include clearfix;
+}
+
+%pie-clearfix {
+  @include pie-clearfix;
+}
+
+// Images
+%max-width {
+	@include max-width;
+}
+
+// List
+// -------------------------------------------------------
+
+%unordered {
+	@include unordered;
+}
+
+%unordered-inside {
+	@include unordered-inside;
+}
+
+%ordered {
+	@include ordered;
+}
+
+%ordered-inside {
+	@include ordered-inside;
+}
+
+%nobullet {
+	@include nobullet;
+}
+// UL
+// -------------------------------------------------------
+
+.reset-list, %reset-list {
+	@include reset-list;
+}
+
+.list-inline, %list-inline {
+	@include list-inline;
+}
+
+.reset-list-inline, %reset-list-inline {
+	@include reset-list-inline;
+}
+
+
+
+// -------------------------------------------------------
+// Custom
+// -------------------------------------------------------
+
+%ir {
+	@include ir;
+}
+
+// Float-lef
+.fl, %fl {
+	@include fl;
+}
+
+// Float-right
+.fr, %fr {
+	@include fr;
+}
+
+// Rest-float
+.rf, %rf {
+	@include reset-float;
+}
+
+// Overflow hidden
+.oh, %oh {
+	@include clearfix;
+}
+
+.full, %full {
+	@include full;
+}
+
+// Center block
+%center-block, .center-block {
+	@include center-block;
+}
+
+// Clear float hack
+.clearfix, %pie-clearfix {
+	@include pie-clearfix;
+}
+
+%line-block
+{
+	@include is-show-inline;
+}
+
+%is-show-inle-block {
+	@include is-show-inle-block;
+}
+
+%left, .left {
+  float: left;
+}
+%right, .right {
+  float: right;
+}

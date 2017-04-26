@@ -1,0 +1,12 @@
+.page-title__space {
+	background-image: url('#{$imagesPath}/page-title.png');
+	margin: 5px 0 -10px 0; 
+	margin-left: 130px;
+	span {
+		margin-left: -130px;
+		font-size: 1.125em;
+		@extend %bold;
+		font-family: $fontMing;
+		color: $primary;
+	}
+}

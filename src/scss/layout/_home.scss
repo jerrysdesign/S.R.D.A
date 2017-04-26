@@ -1,0 +1,945 @@
+// /* =======================
+// 	 Layout/Home
+// 	 ======================= */
+
+// .home {
+// }
+
+// .browsehappy {
+// 	position: fixed;
+// 	width: 100%;
+// 	padding: 20px 40px;
+// 	background-color: $colorSunFlower;
+// 	border: 4px solid $colorCarrot;
+// 	color: $colorWetAsphalt;
+// 	z-index: 9999;
+// 	@extend %text-center;
+// 	a { font-weight: bolder; text-decoration: underline; color: #fff;}
+// }
+
+// // %double-bg {
+// // 	&:before, &:after {
+// // 		position: absolute;
+// // 		z-index: -1;
+// // 		top: 0;
+// // 		left: 0;
+// // 		right: 0;
+// // 		bottom: 0;
+// // 	}
+// // }
+// // 無敵雙背景
+// // body {
+// // 	background: url('#{$imagesPath}/bg0.png');
+// // 	@extend %double-bg;
+// // 	border-bottom: 6px solid #5f751e;
+// // 	&.home-bg {
+// // 		&:before {
+// // 			content: '';
+// // 			background: url('#{$imagesPath}/bg1.png') no-repeat center top;
+// // 		}
+// // 	}
+// // 	&:before {
+// // 		content: '';
+// // 		background: url('#{$imagesPath}/sb-bg-1.png') no-repeat center top;
+// // 	}
+// // }
+// %body-bg {
+// 	@extend .container;
+// 	min-height: 410px;
+// }
+// .home-bg > .container {
+// 	@extend %body-bg;
+// 	background: url('#{$imagesPath}/bg1.png') no-repeat center top;
+// }
+// .sub-bg > .container{
+// 	@extend %body-bg;
+// 	background: url('#{$imagesPath}/sb-bg-1.png') no-repeat center top;
+// }
+
+
+// html {
+// 	background: url('#{$imagesPath}/bg0.png');
+// }
+// body {
+// 	&.home-bg {
+// 		background: url('#{$imagesPath}/bg1.png') no-repeat center top;
+// 	}
+// 	background: url('#{$imagesPath}/sb-bg-1.png') no-repeat center top;
+// }
+
+// HOME
+// ----------------------
+%block {
+	margin-top: 20px;
+}
+%block-inner-15 {
+	padding: 15px;
+}
+%block-inner-10 {
+	padding: 10px;
+}
+%block-inner-2030 {
+	padding: 20px 30px ;
+}
+.search-utility {
+	@extend %block;
+}
+%cont-font-size {
+	@include adjust-font-size-to(13px);
+	font-size: 13px;
+}
+%control-font-size {
+	@extend %cont-font-size;
+}
+
+// .block-b {
+// 	@include size(780px 196px);
+// 	background-image: url('#{$imagesPath}/bg3.png');
+// 	@extend %block;
+// 	@extend %block-inner-15
+// }
+// .block-c {
+// 	@include size(780px 330px);
+// 	background-image: url('#{$imagesPath}/bg4.png');
+// 	@extend %block;
+// 	.interactive-map,.block-c__2,.block-c__3 {
+// 		width: 33.333%;
+// 		@extend %block-inner-15;
+// 		@extend %fl;
+// 	}
+// }
+// .block-d {
+// 	@include size(200px 714px);
+// 	background-image: url('#{$imagesPath}/bg5.png');
+// 	@extend %block;
+// }
+// .block-e {
+// 	@extend %block;
+// 	padding: 13px;
+// 	@include border-radius(4px);
+// 	background-color: white;
+// }
+// .block__title {
+// 	font-family: $headingsFontFamily;
+// 	color: $headingsColor;
+// 	@include adjust-font-size-to(16px);
+// 	margin-bottom: .5em;
+// 	font-weight: bold;
+// }
+
+// // 檢索功能
+
+// .search-utility {
+// 	.tab-content {
+// 		font-size: .83333em;
+// 		background-repeat: no-repeat;
+// 		background-color: white;
+// 		ul {@extend  %reset-list;}
+// 	}
+// 	.tabs-item {
+// 		@extend %block-inner-15;
+// 	}
+// 	// .search-utility--seach { background-color: #FFF;}
+// 	.search-utility--adv-seach {background-color: #FFF;}
+// 	.search-row {
+// 		@extend %reset-list;
+// 		@extend %forms-inline-list;
+// 		@extend %is-show-inline;
+// 	}
+// 	.group + .group{
+// 		margin-left: 2em;
+// 	}
+// 	input+a{
+// 		margin-top: -3px; //only chrome
+// 	}
+// 	.clearfix {margin:4px 0;}
+// 	.title {
+// 		font-family: $fontMing;
+// 		font-size: 16px;
+// 		color: #1d3360;
+// 		font-weight: bold;
+// 		margin-bottom: 10px;
+// 	}
+// }
+
+// .block-a {
+// 	.search-utility--seach, .search-utility--adv-seach {
+// 		width: 780px;
+// 		background-image: url('#{$imagesPath}/bg2.png');
+// 		background-color: #FFF;
+// 		min-height: 120px;
+// 		@extend %block-inner-15;
+// 	}
+// }
+// .search-tab {
+// 	@extend %navbar;
+// 	li { margin-right: 3px;}
+// 	a {
+// 		background-color: #E6E2CF;
+// 		@include border-radius(6px 6px 0 0);
+// 		@include background-image(linear-gradient(#F4F2E4, #D3CEB2));
+// 		line-height: 36px;
+// 		@extend %text-center;
+// 		padding: 0 1.5em;
+// 		.search-page & {
+// 			padding: 0 .5em;
+// 		}
+// 		&.current {
+// 			color: #c04d01;
+// 			background-color: #FFF;
+// 			@include background-image(linear-gradient(#FFF, #FFF));
+// 		}
+// 	}
+// }
+// %btn-color1 {
+// 	@extend %control-font-size;
+// 		@include btn($btnColor1,$btnColor1);
+// }
+// %btn-color2 {
+// 	@extend %control-font-size;
+// 		@include btn($btnColor2,$btnColor2);
+// }
+// %btn-color-df {
+// 	@extend %control-font-size;
+// 		@include btn($black-0,$black-5);
+// 		border:1px solid $black-30;
+// 		color: black;
+// }
+
+// .search-utility__btn--search {
+// 	@extend %btn-color1;
+// }
+// .btn--df {
+// 	@extend %btn-color-df;
+// 	&:hover {
+// 		color:black;
+// 	}
+// }
+// .btn--back {
+// 	@extend %btn-color1;
+// }
+// .btn--green {
+// 	@extend %btn-color2;
+// }
+
+// // 簡易檢索
+// .tab-content {
+// 	.search-page & {
+// 		@extend %block-inner-10;
+// 		background: #fff;
+// 	}
+// 	.search-complate & {
+// 		height: $searchComplateTab-contenHeight;
+// 		background-color: #FFF;
+// 	}
+// 	.search-sun-book &{
+// 		height: $searchSunbookTab-contenHeight;
+// 		background-color: #FFF;
+// 	}
+// 	.search-tpp & {
+// 		height: $searchTppTab-contenHeight;
+// 		background-color: #FFF;
+// 	}
+// 	.search-sun & {
+// 		height: $searchSunTab-contenHeight;
+// 		background-color: #FFF;
+// 	}
+// }
+
+// .search-list {
+// 	margin-top: 10px;
+// 	.search-list__title {background-color: $black-20;}
+// 	thead {
+// 		th {
+// 			padding: 2px 0;
+// 			@extend %text-center;
+// 		}
+// 	}
+// 	tbody {
+// 		td {
+// 			padding: 5px 0;
+// 			@extend %text-center;
+// 		}
+// 	}
+// 	.search-title {
+// 		@extend %text-left;
+// 		a {
+// 			color: #36c;
+// 		}
+// 	}
+// }
+
+// // 簡易檢索側欄
+// .searchs {
+// 	@extend %block;
+// 	.related {margin: 0;}
+// 	.search__tab {
+// 		@extend %navbar;
+// 		li {width: 33.3%;}
+// 		a {
+// 			background-color: #E6E2CF;
+// 			@include background-image(linear-gradient(#F4F2E4, #D3CEB2));
+// 			font-size: 14px;
+// 			@extend %text-center;
+// 			padding: 0.3em 0;
+// 			&.current {
+// 				color: #c04d01;
+// 				background-color: #FFF;
+// 				@include background-image(linear-gradient(#FFF, #FFF));
+// 			}
+// 		}
+// 	}
+// }
+
+// // color
+// .tabs-item {
+// 	display: none;
+// 	&:first-child {display: block;}
+// }
+
+// .keyword{
+// 	margin:0 4px;
+// 	color: $colorPumpkin
+// };
+
+// // 詳目
+// .content {
+// 	@extend %block-inner-10;
+// 	@extend %block;
+// 	background-color: #fff;
+// }
+
+
+// // 分類瀏覽
+// @include with-layout(6 (7.8em, 0em, 0)) {
+// 	.block-b__browse {
+// 		@extend %reset-list-inline;
+// 		@extend %reset-list;
+// 		@include container;
+// 		li {
+//       @include span(last 1 of 12 ltr static)
+// 			@include span-columns(1);
+// 			@include nth-omega(6n);
+// 		}
+// 		.item {
+// 			background-image: url('#{$imagesPath}/browse.png');
+// 			@extend %ir;
+// 			height: 143px;
+// 			display: block;
+// 		}
+// 		@for $i from 0 through 6 {
+// 			.item.item-#{$i} {
+// 				// 7.8em*16=124.8 => 125px
+// 				background-position: 125px*$i top;
+// 			}
+// 		}
+// 	}
+// }
+
+
+
+// // 互動地圖
+// .interactive-map {
+// 	.subheading {
+// 		margin: 10px 0;
+// 		@extend %cont-font-size;
+// 	}
+// }
+
+// // 歷史上的今天
+// .historical-anniversaries {
+// 	overflow: auto;
+// 	height: 300px;
+// 	.historical-anniversaries__list {@extend %cont-font-size;@extend %reset-list;dl,dt,dd{@extend %zero}}
+// 	.historical-anniversaries__list--date {font-size: 14px; color:$colorPumpkin;@extend %bold;}
+// }
+
+// %block-3 {
+// 	width: 100%;
+// 	>li {
+// 		width: 32%;
+// 		@extend %is-show-inline;
+// 	}
+// }
+
+// // 熱門
+// .hot {
+// 	.hot__list {}
+// 	.hot__tab {
+// 		@extend %navbar;
+// 		font-size: 14px;
+// 		@extend %block-3;
+// 		a {
+// 			background: url('#{$imagesPath}/tablink.png') center top;
+// 			line-height: 30px;
+// 			padding-bottom: 4px;
+// 			color: black;
+// 			@extend %text-center;
+// 			@extend %bold;
+// 			&:hover {
+// 				background: url('#{$imagesPath}/tabhover.png');
+// 			}
+// 			&.current {
+// 				color: $red;
+// 				background: url('#{$imagesPath}/tabactive.png') center top;
+// 			}
+// 		}
+// 	}
+// 	.hot__head {@extend %cont-font-size;@extend %reset-list-inline;@extend %block-3;}
+
+// 	.hot__list {
+// 		@extend %cont-font-size;
+// 		@extend %reset-list;
+// 		@extend %zero;
+// 		counter-reset: list 0;
+// 		color: #4c290a;
+// 		li {
+// 			&:before {
+// 				content: counter(list,decimal);
+// 				counter-increment: list;
+// 				position: absolute;
+// 				margin-left: -2em;
+// 				@extend %text-center;
+// 				width: 1.5em;
+// 			}
+// 			padding: 2px 5px 2px 2em;
+// 			&:nth-child(odd) {
+// 				background-color: $black-15;
+// 			}
+// 			// .lt-ie9
+// 			.lt-ie9 & {
+// 				&.odd {
+// 					background-color: $black-15;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	.item {
+// 		width: 100%;
+// 		@extend %is-show-inline;
+// 		@extend %list-inline;
+// 		dt{
+// 			@include size(75% auto);
+// 		}
+// 		dd{
+// 			@extend %fr;
+// 			@extend %text-right;
+// 		}
+// 	}
+// }
+
+// // 大事年表
+// .time-line {
+// 	@extend %block-inner-15;
+// 	.vertical {
+// 		position:relative;
+// 		overflow:hidden;
+// 		height: 619px;
+// 		width: 170px;
+// 	}
+// 	.items {
+// 		position:absolute;
+// 		height:20000em;
+// 	}
+// 	.block__title {@extend %text-center;}
+// 	.lt-ie9 & {
+// 		.block__title {
+// 			text-align: center;
+// 		}
+// 	}
+// 	.scroll-top {
+// 		@extend %scroll-btn;
+// 		background-image: url('#{$imagesPath}/scroll-top.png');
+// 	}
+// 	.scroll-down {
+// 		@extend %scroll-btn;
+// 		background-image: url('#{$imagesPath}/scroll-down.png');
+// 	}
+// 	.disabled {
+// 		@include opacity(.65);
+// 		cursor: default;
+// 	}
+// 	.item__head {
+// 		position: relative;
+// 		background-image: url('#{$imagesPath}/year.png');
+// 		@include size(170px 40px);
+// 		margin-bottom: 10px;
+// 		.age {
+// 			@extend %time-line__head;
+// 			font-size: 36px;
+// 			line-height: 36px;
+// 			top: 4px;
+// 			@extend %bold;
+// 		}
+
+// 		.yy {
+// 			@extend %time-line__head;
+// 			@extend %cont-font-size;
+// 			right: 0;
+// 			bottom: 0;
+// 		}
+// 	}
+// 	.item__photo {
+// 		padding: 6px;
+// 		border: 1px solid $black-30;
+// 		background-color: #fff;
+// 		@include box-shadow(0 0 5px rgba(0,0,0,.3));
+// 		margin-bottom: 10px;
+// 		@extend %cont-font-size;
+// 		line-height: 1.5;
+// 		color: $black-60;
+// 	}
+// 	.item__list {
+// 		@extend %cont-font-size;
+// 		line-height: 1.5;
+// 		li {
+// 			padding-left: 15px;
+// 			background: url('#{$imagesPath}/arr-01.png')no-repeat;
+// 		}
+// 	}
+// }
+// %scroll-btn {
+// 	@include size(200px 28px);
+// 	@extend %ir;
+// 	@extend %is-show;
+// 	margin: 0 -15px;
+// }
+// %time-line__head {
+// 	position: absolute;
+// 	color:$colorPumpkin;
+// }
+
+// .related {
+// 	@extend %block;
+// 	@extend %block-inner-15;
+// 	background-color: #fff;
+// 	@extend %nav;
+// 	.related-title {
+// 		background-color: $black-10;
+// 		color: #c04d01;
+// 		padding-left: 5px;
+// 		@extend %cont-font-size;
+// 		@extend %bold;
+// 	}
+// 	.more {
+// 		background-color: $black-20;
+// 		color: #c04d01;
+// 		@extend %fr;
+// 		padding: 0 .25em;
+// 	}
+// 	.related-list {
+// 		margin-bottom: 10px;
+// 		li {
+// 			@extend %cont-font-size;
+// 			padding-left: 5px;
+// 			a {
+// 				padding: 0;
+// 			}
+// 		}
+// 		& + .related-title {
+// 			margin-top: 10px;
+// 		}
+// 	}
+// 	ol {
+// 		list-style-type: decimal;
+// 		list-style-position: inside;
+// 	}
+// }
+
+// // 國父全集
+// .banner-complate {
+
+// }
+// %dropdown, .dropdown {
+// 	position: relative;
+// 	> li {
+// 		float: left;
+// 		> a {
+// 			display: block;
+// 		}
+// 		&:hover {
+// 			ul {
+// 				visibility: visible;
+// 			}
+// 		}
+// 	}
+// }
+// %sub-menu, .sub-menu {
+// 	position: absolute;
+// 	visibility: hidden;
+// }
+// .book-shelf {
+// 	> ul {
+// 		@extend %dropdown;
+// 		left: 20px;
+// 	}
+// }
+// .book-shelf {
+// 	background: url('#{$imagesPath}/book-shelf.png')no-repeat 0 96px;
+// 	min-height: 236px;
+// 	li {
+// 		.book {z-index: 2;position: relative;}
+// 		.book-section {z-index: 1;}
+// 		.book {
+// 			@include size(81px 156px);
+// 			background: url('#{$imagesPath}/book--n.png')no-repeat;
+// 			margin-left: -1px;
+// 			&:hover {
+// 				background: url('#{$imagesPath}/book--o.png')no-repeat;
+// 			}
+// 		}
+// 	}
+// }
+// // 三民主義
+// .book-shelf-tpp {
+// 	@extend .book-shelf;
+// 	background: url('#{$imagesPath}/book-shelf-tpp.png')no-repeat 0 0;
+// 	@include size(732px 239px);
+// 	margin: 0 auto;
+// 	> ul {
+// 		left: 206px;
+// 		top: 6px;
+// 	}
+// }
+// [class^='vol-'] {
+// 	@include size(81px 156px);
+// 	@extend %ir;
+// 	display: block;
+// 	background-image: url('#{$imagesPath}/book-name--n.png');
+// 	&:hover  {background-image: url('#{$imagesPath}/book-name--p.png');}
+// }
+// .book-shelf-tpp {
+// 	[class^='vol-'] {
+// 		background-image: url('#{$imagesPath}/book-name-tpp--n.png');
+// 		&:hover {background-image: url('#{$imagesPath}/book-name-tpp--p.png');}
+// 	}
+// }
+// @for $i from 0 through 12 {
+// 	.vol-#{$i+1} , .vol-#{$i+1}:hover { background-position: -80px*$i 0; }
+// }
+// .book-section {
+// 	background: url('#{$imagesPath}/book-section-bg.png')repeat;
+// 	margin-top: -10px;
+// 	height: 163px;
+// 	&:before,&:after {
+// 		content:'';
+// 		width: 8px;
+// 		display: block;
+// 		height: 163px;
+// 	}
+// 	&:before {background: url('#{$imagesPath}/book-section-left.png')no-repeat;float:left;margin-left:-8px;}
+// 	&:after {background: url('#{$imagesPath}/book-section-right.png')no-repeat;float:right;margin-right:-8px;}
+// 	> li {
+// 		float: left;
+// 		width: 1em;
+// 		margin: 50px 5px 8px 5px;
+// 		line-height: 1.1;
+// 	}
+// 	> li a {
+// 		width: 1em;
+// 		display: block;
+// 		writing-mode: tb-rl;
+// 		-ms-writing-mode: tb-lr;
+// 		-webkit-writing-mode: vertical-lr;
+// 		-moz-writing-mode: vertical-lr;
+// 		-ms-writing-mode: vertical-lr;
+// 		writing-mode: vertical-lr;
+// 	}
+// 	.lt-ie9 & {
+// 		> li {
+// 			text-align: left;
+// 			height: 113px;
+// 		}
+// 	}
+// }
+
+// // 國館紀要
+// .yasten-history__banner {
+// 	@include size(1000px 118px);
+// 	background: url('#{$imagesPath}/yatsen-history-banner.png')no-repeat;
+// 	@extend %cont-font-size;
+// 	.search-row {
+// 		margin-bottom: 0;//有空在整理一下
+// 	}
+// 	.search-utility {
+// 		margin-top: 10px;//有空在整理一下
+// 	}
+// }
+
+// // 國父年譜 & 國館紀要
+// .life__contarea,.history__contarea {
+// 	.nav__list01, .nav__list02 {
+// 		float: left;
+// 		width: 280px;
+// 		li {
+// 			font-size: 15px;
+// 			line-height: 24px;
+// 			background: url('#{$imagesPath}/nav_list_01.png') no-repeat 8px 50%;
+// 			a {
+// 				padding-left:26px;
+// 				display: block;
+// 			}
+// 			&:hover a, a.currnet {
+// 				color: #0156a5;
+// 				font-weight: bold;
+// 			}
+// 		}
+// 	}
+// 	.nav__list02 {
+// 		li {
+// 			background: url('#{$imagesPath}/list.png') no-repeat 0 50%;
+// 			&:hover a, a.currnet {
+// 				background: url('#{$imagesPath}/list_o.png') no-repeat 0 50%;
+// 			}
+// 		}
+// 	}
+// 	.life__cont {
+// 		float: right;
+// 		width: 720px;
+// 		border: 1px solid #2678c4;
+// 		font-size: 13px;
+// 		background-color: #fff;
+// 		h3.title {
+// 			border-left: 5px solid #2678c4;
+// 			border-bottom: 1px solid #2678c4;
+// 			font-size: 15px;
+// 			line-height: 38px;
+// 			padding: 0 10px;
+// 			background-color: #e7f3ff;
+// 		}
+// 		.life__cont--row01 {
+// 			padding: 10px 20px;
+// 		}
+// 		.life__cont--row02 {
+// 			padding: 0 0 10px 10px;
+// 			li {
+// 				float: left;
+// 				width: 162px;
+// 				margin: 0 8px 10px 5px;
+// 				padding: 2px 10px;
+// 				box-shadow: 2px 1px 2px #697d92;
+// 				border-radius: 5px;
+// 				border: 1px solid #b0c4d8;
+// 				background-color: #e7f3ff;
+// 				@include background-image(linear-gradient(#ffffff, #e7f3ff));
+// 			}
+// 		}
+// 	}
+// 	.history__cont {
+// 		float: right;
+// 		width: 720px;
+// 		.search-tab {
+// 			li {
+// 				width: 122px;
+// 			}
+// 			a {
+// 				padding: 0 .2em;
+// 			}
+// 		}
+// 		.search-row {
+// 			li {
+// 				width: 100%;
+// 				img {
+// 					margin-left: 5px;
+// 					vertical-align: bottom;
+// 				}
+// 			}
+// 			.history__date{
+// 				float: left;
+// 				width: 84px;
+// 				color: #1c4cb2;
+// 			}
+// 			.history__pic{
+// 				margin-top: 10px;
+// 				img {
+// 					margin-right: 25px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// %title-cn-style {
+// 	font-family: $headingsFontFamily;
+// 	margin: 20px 0 10px 0;
+// 	font-size: 1.25em;
+// 	span {
+// 		display: inline-block;
+// 		&:before, &:after {
+// 			padding: 11px 13px;
+// 			content: '';
+// 		}
+// 	}
+// }
+// .title-cn-style {
+// 	@extend %title-cn-style;
+// 	background: url('#{$imagesPath}/head-title-bg.png');
+// 	span {
+// 		background: url('#{$imagesPath}/bg0.png');
+// 		&:before {
+// 			background: url('#{$imagesPath}/title-bg-before.png') no-repeat 0 50%;
+// 		}
+// 		&:after {
+// 			background: url('#{$imagesPath}/title-bg-after.png') no-repeat 0 50%;
+// 		}
+// 	}
+// }
+// .title-cn-style--g {
+// 	@extend %title-cn-style;
+// 	span {
+// 		color: #495217;
+// 		&:before {
+// 			background: url('#{$imagesPath}/title-bg-before-g.png') no-repeat 0 50%;
+// 		}
+// 		&:after {
+// 			background: url('#{$imagesPath}/title-bg-after-g.png') no-repeat 0 50%;
+// 		}
+// 	}
+// }
+// %scroll-btn2 {
+// 	@include size(25px 181px);
+// 	position: absolute;
+// 	z-index: 9;
+// 	@extend %ir;
+// }
+
+// // time-line2
+// .time-line2 {
+// 	@extend .time-line;
+// 	position: relative;
+// 	@extend %block-inner-15;
+// 	.scrollable {
+// 		position:relative;
+// 		overflow:hidden;
+// 		@include size(100% 181px);
+// 	}
+// 	.time-line__item {
+// 		float: left;
+// 		width: 170px;
+// 		margin-left: 20px;
+// 		font-size: 13px;
+// 		.item__list {
+// 			height: 50px;
+// 			line-height: 17px;
+// 		}
+// 	}
+// 	.scroll_prev {
+// 		@extend %scroll-btn2;
+// 		left: 0;
+// 		background-image: url('#{$imagesPath}/scroll-prev.png');
+// 	}
+// 	.scroll_next {
+// 		@extend %scroll-btn2;
+// 		top: 14px;
+// 		right: 0;
+// 		background-image: url('#{$imagesPath}/scroll-next.png');
+// 	}
+// }
+
+// /* =======================
+// 	 sun-book
+// 	 ======================= */
+// .block-2030 {
+// 	@extend %block;
+// 	@extend %block-inner-2030;
+// 	background-color: white;
+// }
+// .sun-book-table {
+// 	background-color: #fff;
+// 	@extend %table-bordered;
+// 	@extend %cont-font-size;
+// 	$color: #a0ac5e;
+// 	td, th { border: 1px solid $color;}
+// 	th {
+// 		background-color: lighten($color, 20%);
+// 	}
+// 	tr {
+// 		&:nth-child(odd) {
+// 			background-color: lighten($color, 47%);
+// 		}
+// 		&:nth-child(even) {
+// 			background-color: lighten($color, 43%);
+// 		}
+// 		td:nth-child(1) {
+// 			@extend %text-center;
+// 		}
+// 	}
+// }
+
+// /* =======================
+// 	 sun-archives
+// 	 ======================= */
+// .sun-archives__banner {
+// 	padding: 17px 10px;
+// 	background-color: #ebfbff;
+// 	border: 2px solid #92d5d4;
+// 	.search-utility--seach {
+// 		background: none;
+// 	}
+// 	.title {
+// 		color: #1e8f8e;
+// 	}
+// 	.search-row {
+// 		margin-bottom: 0;//有空在整理一下
+// 		@extend %cont-font-size;
+// 	}
+// 	lebel {
+// 		@extend %cont-font-size;
+// 	}
+// 	.clearfix {
+// 		margin: 0;
+// 	}
+// 	.search-utility__btn--search {
+// 		background: #1e8f8e;
+// 		padding: .1em 1em;
+// 	}
+// }
+// .accordion {
+// 	> .list {
+// 		padding-left: 1.25em;
+// 		background: url('#{$imagesPath}/panel-close.png') no-repeat left 5px;
+// 		font-size: .9375 em;
+// 	}
+// 	> .list + .list {
+// 		margin-top: 5px;
+// 	}
+// 	.panel {
+// 		.item {
+// 		background: url('#{$imagesPath}/arr.png') no-repeat 5px 12px ;
+// 		padding: 5px;
+// 		padding-left: 2em;
+// 		@extend %cont-font-size;
+// 		line-height: 1.25;
+// 			&:hover, &:active, &.active {
+// 				background-color: #e3f4f7;
+// 				font-weight: bold;
+// 			}
+// 		}
+// 	}
+// }
+// .view {
+// 	background: #939393;
+// 	min-height: 348px;
+// 	overflow: hidden;
+// }
+// /* =======================
+// 	 tpp
+// 	 ======================= */
+// .half {
+// 	float: left;
+// 	width: 50%;
+// 	display: inline-block;
+// }
+
+// /* =======================
+// 	 let-ie9
+// 	 ======================= */
+// .lt-ie9 {
+// }
+
+// .reset-table {
+// 	tr, th, td {
+// 		margin: 0;
+// 		padding: 0;
+// 		border: none;
+// 	}
+// }

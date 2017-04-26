@@ -6,6 +6,9 @@ $headers: 'h1, h2, h3, h4, h5, h6';
 $a-tags: 'a, a:visited';
 $a-tags-hover: 'a:active, a:hover';
 
+$anchor-text-color: $colorBlue;
+$a-tags-hover: $colorPrimary;
+
 #{$headers} {
   text-transform: uppercase;
 }
@@ -16,4 +19,27 @@ $a-tags-hover: 'a:active, a:hover';
 
 #{$a-tags-hover} {
   color: if(variable-exists(anchor-text-hover-color), $anchor-text-hover-color, '#000');
+}
+
+// =Typography
+// -----------------------------------------------------------------------------
+body {
+  font-family:  $baseFontFamily;
+  font-size:    $baseFontSize + 0px;
+  // @include rem('line-height', $baseLineInEms);
+  // font-weight:  $baseFontWeight;
+  color:      $baseFontColor;
+}
+a {
+  // color: $colorPrimary;
+  text-decoration: none;
+  // @include transition();
+  @include link-active-styles {
+    // text-decoration: none;
+    // color: $colorPrimary;
+  }
+}
+img { max-width: 100%;}
+p {
+  line-height: 1.5;
 }

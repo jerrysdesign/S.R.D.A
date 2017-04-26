@@ -1,0 +1,360 @@
+/* =======================
+   View/Header
+   ======================= */
+$imagesPath: '../images';
+
+.main-mav-level {
+
+}
+
+.header {
+    // TopNav
+  .top-navbar {
+    background-image: linear-gradient(-180deg, #C3141C 0%, #9E1616 100%);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.50);
+    height: 38px;
+    &__nav {
+      ul,
+      li {
+        @include reset-box-model;
+        @include reset-list-style;
+      }
+      nav {
+        @include clearfix;
+      }
+      ul {
+        float: right;
+      }
+      li {
+        display: inline-block;
+      }
+      li + li {
+        &:before {
+          color: rgba(white,.5);
+          content: ' / ';
+          display: inline-block;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      a {
+        font-size: 14px;
+        line-height: 38px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+
+  .srda-logo {
+    margin-top: 37px;
+    float: left;
+  }
+
+
+  .quick-link {
+    margin-top: 35px;
+    text-align: center;
+    float: right;
+    ul,
+    li {
+      @include reset-box-model;
+      @include reset-list-style;
+    }
+    li + li {
+      margin-left: 20px;
+    }
+    &__item {
+      display: inline-block;
+      a {
+        display: block;
+        font-size: 11px;
+        color: $colorGrayDark;
+        text-decoration: none;
+        &.login {
+          &:before {
+            background-image: url('#{$imagesPath}/icon-login_n.png');
+          }
+          &:hover {
+            &:before {
+              background-image: url('#{$imagesPath}/icon-login_o.png');
+            }
+          }
+        }
+        &.service {
+          &:before {
+            background-image: url('#{$imagesPath}/icon-service_n.png');
+          }
+          &:hover {
+            &:before {
+              background-image: url('#{$imagesPath}/icon-service_o.png');
+            }
+          }
+        }
+        &.about {
+          &:before {
+            background-image: url('#{$imagesPath}/icon-about_n.png');
+          }
+          &:hover {
+            &:before {
+              background-image: url('#{$imagesPath}/icon-about_o.png');
+            }
+          }
+        }
+        &:before {
+          content: '';
+          display: block;
+          @include size(45px);
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+
+
+  .searchbar-wrapper {
+    height: 40px;
+    border: 1px solid $colorPrimary;
+    border-radius: 6px;
+    margin-top: 20px;
+    @include clearfix;
+  }
+
+  $shade_color: #e7e7e7;
+  $highlight_color: $colorPrimary;
+
+
+  .search_bar {
+    float: left;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #ccc;
+    position: relative;
+    width: 610px;
+    border-radius: 6px;
+
+    input[type=text] {
+      border: none;
+      box-shadow: none;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 38px;
+      width: 80%;
+      padding: 0 10px;
+      margin: 0;
+      overflow: hidden;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button[type=submit] {
+      background: linear-gradient(lighten($highlight_color, 10%), lighten($highlight_color, 3%));
+      color: rgba(255, 255, 255, 0);
+      border: 1px solid $highlight-color;
+      width: 10%;
+      min-width: 56px;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: 0 4px 4px 0;
+      margin: 0;
+      user-select: none;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 18%;
+        right: 0;
+        bottom: 22%;
+        left: 4%;
+        background: url('#{$imagesPath}/search-icon.svg') no-repeat center center;
+        background-size: contain;
+      }
+
+      &:hover, &:focus {
+        background: linear-gradient(lighten($highlight_color, 15%), lighten($highlight_color, 7%));
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+    }
+
+    .search_dropdown {
+      font-weight: 600;
+      min-width: 17px;
+      background: linear-gradient(lighten($shade_color, 5%), darken($shade_color, 2%));
+      border-right: 1px solid #ddd;
+      color: #555;
+      padding: 0 28px 0 13px;
+      border-radius: 4px 0 0 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 10000;
+      user-select: none;
+      box-sizing: content-box;
+
+      &:after {
+        content: "\2193";
+        color: rgba(85, 85, 85, 0);
+        background: url('#{$imagesPath}/down-arrow.svg') no-repeat top left;
+        height: 8px;
+        width: 10px;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -6px;
+      }
+
+      &:hover,
+      &.active {
+        background: linear-gradient($shade_color, darken($shade_color, 7%));
+        cursor: pointer;
+        border-right-color: #ccc;
+      }
+
+      > span {
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        white-space: nowrap;
+        font-size: 15px;
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        top: 105%;
+        left: -1px;
+        font-size: 14px;
+        width: 225px;
+        background: #fff;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 7px 0;
+      }
+
+      li {
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 18px;
+        color: $highlight_color;
+        line-height: 1.2em;
+        position: relative;
+
+        &:hover {
+          background: $shade_color;
+        }
+
+        &.selected {
+          background: $highlight_color;;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+
+  .main-nav {
+
+    //variables
+    $background-purple: #EEEEEE;
+    $subtle-white: #f9f9f9;
+    $subtle-grey: #f2f2f2;
+    $masked-grey: #333;
+    $blue: #F03861;
+
+    margin-left: auto;
+    a {
+      font-size: 16px;
+      color: $colorGrayDarker;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+    }
+    > ul {
+      float: right;
+    }
+    > ul {
+      font-size: 0;
+      list-style-type: none;
+
+
+      // initial li
+      > li {
+        display: inline-block;
+        position: relative;
+        > a {
+          border-top: 4px solid transparent;
+          padding: 20px;
+        }
+        &:hover {
+          > a {
+            border-top: 4px solid $colorPrimary;
+          }
+        }
+
+        // secondary ul
+        > ul {
+          display: none;
+          border: 1px solid $colorGray;
+
+          li + li {
+            border-top: 1px solid $colorGray;
+          }
+        }
+
+        // initial li:hover
+        &:hover {
+          cursor: pointer;
+          // secondary ul visibility change
+          > ul {
+            display: block;
+            width: 200px;
+            left: 0;
+            position: absolute;
+
+            // secondary li
+            > li {
+              > a {
+                background-color: white;
+                z-index: 1;
+                position: relative;
+                border-bottom: 2px solid transparent;
+              }
+              &:hover {
+                > a {
+                  color: $colorPrimary;
+                  background-color: darken($subtle-white, 10%);
+                  border-bottom: 2px solid $colorPrimary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hot-keyword {
+  margin-left: 620px;
+  padding-top: 12px;
+  padding-left: 10px;
+  font-size: 14px;
+  a {
+    color: $colorGrayDarker;
+  }
+  dt,
+  dd {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+  }
+}

@@ -3,7 +3,8 @@
 // ==========================================================================
 
 @import "../../node_modules/susy/sass/susy";
-@import "../../node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "../../node_modules/compass-mixins/lib/compass";
+// @import "../../node_modules/bourbon/app/assets/stylesheets/bourbon";
 @import "../../node_modules/superlatief-mediaqueries/scss/mediaqueries";
 @import "../../node_modules/superlatief-colors/scss/colors";
 
@@ -18,13 +19,15 @@
 // ==========================================================================
 @import "base/variables";
 
-@import "base/fonts/**/*";
-@import "base/reset";
-@import "base/placeholders";
-@import "base/grid";
-@import "base/typography";
+// @import "base/fonts/**/*";
+// @import "base/reset";
+// @import "base/placeholders";
+// @import "base/grid";
+// @import "base/typography";
 
 
+@import "base";
+@import "modules";
 
 
 
@@ -32,17 +35,16 @@
 // ==========================================================================
 // Modules
 // ==========================================================================
-@import "modules/**/*";
+// @import "modules/**/*";
 
 
 
 
 
 // ==========================================================================
-// Views
+// Layout
 // ==========================================================================
-@import "views/**/*";
-
+@import "layouts";
 
 
 
@@ -57,7 +59,7 @@
 // ==========================================================================
 // Themes
 // ==========================================================================
-@import "themes/**/*";
+// @import "themes/**/*";
 
 
 
@@ -68,3 +70,45 @@
 // Playground - To Be Deleted
 // ==========================================================================
 @import "playground/**/*";
+
+body {
+
+}
+
+
+
+// .content {
+//   @include span(8);
+//   // padding: gutter();
+//   background-color: rgba(255,255,255,0.3);
+// }
+
+// .sidebar {
+//   @include span(4);
+//   // padding: gutter();
+//   background-color: rgba(255,255,255,0.4);
+// }
+
+// .column-a {
+//   @include span(6 of 8);
+//   padding: gutter();
+//   margin-left: span(1 of 8) + gutter(8);
+//   background-color: rgba(255,255,255,0.2);
+// }
+
+// .gallery {
+//   list-style-type: none;
+//   padding: 0;
+//   margin: 0;
+//   padding: gutter(8);
+//   padding-bottom: 0;
+// }
+
+// .gallery-item {
+//   @include gallery(2 of 8);
+//   padding: gutter();
+//   text-align: center;
+//   background-color: rgba(255,255,255,0.3);
+//   min-height: 40px;
+//   margin-bottom: gutter();
+// }

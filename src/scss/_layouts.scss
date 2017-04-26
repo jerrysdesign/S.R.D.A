@@ -1,0 +1,112 @@
+// ======================
+// Layouts styles
+// ======================
+
+$page-container: ".container";
+
+#{$page-container} {
+  // @include container(24);
+  // @include susy-grid-background;
+}
+
+/* ======================= Layout styles ======================= */
+
+// .container {@include container(24);}
+// .header { @extend .container;}
+// .main-nav { @extend .container;}
+// .main { @extend .container;}
+// .footer { @extend .container;}
+// .breadcrumbs  { @extend .container;}
+
+$wrapper: 990px;
+$sidebar--right: 190px;
+$sidebar--left: 225px;
+$gutter: 40px;
+
+.container {
+  width: 990px;
+  margin: 0 auto;
+  @include pie-clearfix;
+}
+
+.row {
+	@include container;
+  @include pie-clearfix;
+}
+
+%left-col {
+	float: left;
+	margin-right: 0px;
+	display: inline;
+}
+%right-col {
+	float: right;
+	margin-right: 0;
+	display: inline;
+}
+.side--left + .area {
+	width: $wrapper - $sidebar--right;
+	@extend %left-col;
+  padding-left: $gutter;
+}
+.side--right {
+	width: $sidebar--left;
+	@extend %right-col;
+}
+.side--left {
+	width: $sidebar--right;
+	@extend %left-col;
+}
+
+
+@import "layout/home";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/footer";
+@import "layout/main";
+
+/* ======================= Page Layout styles ======================= */
+// complete
+
+// .side--left.banner-complate, .side--left.banner-tpp, , .side--left.banner-sun{
+// 	width: 330px;
+// 	@extend %left-col;
+// }
+// .banner-complate + .area, .banner-tpp + .area, .banner-sun + .area{
+// 	width: 650px;
+// 	@extend %right-col;
+// }
+// .search-complate, .search-life, .search-sun-book, .search-tpp, .search-sun {
+// 	margin-top: 0;
+// }
+
+//
+// .yasten-history__banner {
+// 	.search-utility {
+// 		width: 630px;
+// 		float: right;
+// 	}
+// 	.search-utility--seach {
+// 		background: none;
+// 	}
+// }
+
+//
+// .sun-archives__banner {
+// 	.side--left.banner-complate {
+// 		width: auto;
+// 	}
+// 	.banner-complate + .area {
+// 		width: auto;
+// 		@extend %left-col;
+// 	}
+// }
+
+
+// .block-e {
+// 	.side--left { width: 178px;}
+// 	.area {
+// 		margin-right: 0;
+// 		width: 774px;
+// 	}
+// }

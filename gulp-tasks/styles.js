@@ -22,15 +22,15 @@ var cssnano = require('cssnano');
 var postcssConfigDev = [
   gradientFix,
   next({browsers: cfg.browsers}),
-  classPrfx(cfg.prefix),
+  // classPrfx(cfg.prefix),
   mqKeyframes,
   autoprefixer({browsers: cfg.browsers}),
 ];
 
-var postcssConfigBuild = [ 
+var postcssConfigBuild = [
   gradientFix,
   next({browsers: cfg.browsers}),
-  classPrfx(cfg.prefix),
+  // classPrfx(cfg.prefix),
   mqKeyframes,
   autoprefixer({browsers: cfg.browsers}),
   cssnano({autoprefixer: false}),

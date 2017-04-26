@@ -54,8 +54,8 @@
   "scripts": {
     "src": "coffee/js/**/*.coffee",
     "build": "website/assets/js",
-    "src_lib": "website/assets/js/venodr/**/*.js",
-    "build_lib": "website/assets/js/venodr/"
+    "src_lib": "website/assets/js/vendor/**/*.js",
+    "build_lib": "website/assets/js/vendor/"
   },
   "svgicons": {
     "spriteName": "icon-sprite",

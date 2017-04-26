@@ -1,0 +1,112 @@
+/* =======================
+   Layout/Footer
+   ======================= */
+
+// .footer {
+// 	background-image: url('#{$imagesPath}/bg-foot.png');
+// 	min-height: 134px;
+// 	@include adjust-font-size-to(13px);
+// 	padding-top: 40px;
+// 	.logo0 {
+// 		@extend %ir;
+// 		@include span-columns(2, 17);
+// 		@include push(4.5);
+// 		@include size(90px 75px);
+// 		background-image: url('#{$imagesPath}/logo-0.png');
+// 		@include image-2x('#{$imagesPath}/logo-0@2x.png', 90px, 75px);
+// 	}
+// 	&.foot-b {
+// 		padding-top: 0;
+// 		background-position: center bottom;
+// 		background-repeat: no-repeat;
+// 		margin-top: 20px;
+// 	}
+// }
+// .copyright {
+// 	@include span-columns(10, 17);
+// 	padding-top: 5px;
+// 	.foot-b & {
+// 		line-height: 1.5;
+// 		@include span-columns(6, 17);
+// 		font-size: 12px;
+// 	}
+// }
+
+.footer {
+  margin-top: 40px;
+  &__{
+    &main-nav {
+      color: white;
+      background: #575757;
+      box-shadow: inset 0 0 200px 0 rgba(0,0,0,0.10);
+      padding: 60px 0;
+      ul,
+      li {}
+      > ul {
+        width: 990px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        > li {
+
+        }
+        // > li + li {
+        //   &:before {
+        //     content: '';
+        //     display: inline-block;
+        //     width: 2px;
+        //     height: 100%;
+        //     background-image: linear-gradient(-180deg, rgba(163,41,47,0.00) 0%, #A32A2F 20%, rgba(163,41,47,0.86) 80%, rgba(163,41,47,0.00) 100%);
+        //   }
+        // }
+      }
+      a {
+        color: rgba(white, .5);
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        &:hover {
+          text-decoration: underline;
+          color: rgba(white, 1);
+        }
+      }
+      &__item {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .srda-sinica {
+    float: left;
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+  }
+  .social-nav {
+    float: right;
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        width: 44px;
+        height: 44px;
+      }
+    }
+    li + li {
+      margin-left: 6px;
+    }
+  }
+  .footer__main-nav + .container {
+    padding: 40px 0;
+  }
+  .copyright {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    line-height: 34px;
+    background-image: linear-gradient(-180deg, #C3141C 0%, #9E1616 100%);
+  }
+}

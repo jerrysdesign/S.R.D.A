@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Global Defaults
+   ========================================================================== */
+
+// Vanilla CSS
+// http://www.vanillacss.com/
+// ========================
+
+// BODY ELEMENTS
+// -------------------------
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+body {
+  font-size: 13px;
+	font-family:	$baseFontFamily;
+	font-weight:	$baseFontWeight;
+	color:			$baseFontColor;
+	background:		$baseBackground;
+
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+div {}
+hr {}
+img { max-width: 100%;}
+a {
+	color: $action;
+	text-decoration: none;
+	// @include transition();
+	@include link-active-styles {
+		text-decoration: none;
+		color: $actionRespond;
+	}
+}
+
+// HEADINGS
+// -------------------------
+
+//// All Headings
+// h1, h2, h3, h4, h5, h6 {}
+// #{headings()} {
+// 	@include reset-box-model;
+// }
+
+// Individual Headings
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+
+// PARAGRAPHS
+// -------------------------
+
+// First Paragraph
+p { @include reset-box-model; }
+
+// Seccond Paragraph
+abbr {}
+b {}
+
+// Blockquote
+blockquote {}
+cite {}
+
+// Third Paragraph
+dfn {}
+del {}
+em {}
+i {}
+strong {}
+ins {}
+small {}
+
+// Quote
+q {}
+
+// Fourth Paragraph
+sub {}
+sup {}
+
+// LISTS
+// -------------------------
+
+// All Lists
+dl, ol, ul {}
+
+// Definition Lists
+dl {}
+dt {}
+dd {}
+
+// Ordered Lists
+ol {}
+ol li {}
+
+// Unordered Lists
+ul {}
+ul li {}
+
+// FORMS
+// -------------------------
+
+form {}
+fieldset {}
+legend {}
+label {}
+
+// Inputs
+input {}
+textarea {}
+input[type=button],
+input[type=submit],
+button {
+	cursor: pointer;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	font-size: 110%;
+	position: relative;
+	top: -1px;
+}
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+// Other
+select {}
+optgroup {}
+
+// TABLES
+// -------------------------
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+caption {}
+tr {}
+
+// Head
+thead {}
+th {}
+
+// Body
+tbody {}
+td {}
+
+// Foot
+tfoot {}
+
+th,
+td {
+  border-bottom: 1px solid #eee;
+  padding: 8px 10px; }
+// OTHER
+// -------------------------
+
+address {}
+code {}
+samp {}
+pre {}
+
+kbd {}
+var {}

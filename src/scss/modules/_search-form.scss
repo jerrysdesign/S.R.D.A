@@ -1,0 +1,62 @@
+$paginationLinkColor: #7a99d9;
+
+.pagination {
+	height: 20px;
+	margin-top: 3px;
+}
+.page {
+	@extend %pagination;
+	@include is-show-inline;
+	left: 0;
+	li {
+		height: 20px;
+		a, span {
+			padding: 3px 6px;
+			@include size(20px);
+		}
+		a {
+			&:hover {
+				background: $paginationLinkColor;
+			}
+		}
+		span {
+			background: $paginationLinkColor;
+			color: #fff;
+		}
+	}
+}
+.page-control-bar {
+	margin: 1px 0;
+	padding: 7px 10px;
+	background-color: $black-10;
+	@extend %cont-font-size;
+	@extend %is-show-inle-block;
+	.col1 {
+		margin-right: 35px;
+	}
+	.col2 {
+		margin-right: 35px;
+	}
+	.col3 {
+	}
+	.col4 {
+		@extend %text-right;
+		@extend %fr;
+	}
+}
+$searchResultItemColor: #fffbf3 #f8ecd2 #efe1c0;
+.search-result-item {
+	@extend %table-bordered;
+	th {
+		border: 1px solid nth($searchResultItemColor, 3);
+		background-color: nth($searchResultItemColor, 2);
+		@extend %text-right;
+		@extend %bold;
+		font-size: $baseFontSize - 1 *1px;
+		color: $primary;
+	}
+	td {
+		background-color: nth($searchResultItemColor, 1);
+		font-size: $baseFontSize - 1 *1px;
+	}
+}
