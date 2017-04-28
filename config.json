@@ -52,7 +52,7 @@
   "prefix": "prfx-",
   "browsers": "last 3 versions, > 1%",
   "scripts": {
-    "src": "coffee/js/**/*.coffee",
+    "src": "src/coffee/**/*.coffee",
     "build": "website/assets/js",
     "src_lib": "website/assets/js/vendor/**/*.js",
     "build_lib": "website/assets/js/vendor/"

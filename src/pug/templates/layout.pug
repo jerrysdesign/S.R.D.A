@@ -32,9 +32,9 @@ html(lang=lang class="no-js " + lang)
       link(rel="stylesheet", href="assets/styles/style.css")
       != '\n    <!-- endbuild -->'
 
-    block headerScripts
-      != '\n    <!-- inject:head:js -->'
-      != '\n    <!-- endinject -->'
+    //- block headerScripts
+    //-   != '\n    <!-- inject:head:js -->'
+    //-   != '\n    <!-- endinject -->'
 
   body
     block contentMain
@@ -44,9 +44,9 @@ html(lang=lang class="no-js " + lang)
     != '\n'
 
     block footerScripts
-      != '\n\n    <!-- inject:head:js -->'
-      != '\n\n    <!-- endinject -->'
+      //- != '\n\n    <!-- inject:head:js -->'
+      //- != '\n\n    <!-- endinject -->'
       != '\n\n    <!-- build:js -->'
       script(src="assets/js/script.js")
       != '\n    <!-- endbuild -->\n'
-      script(src="assets/js/script.js")
+      //- script(src="assets/js/script.js")

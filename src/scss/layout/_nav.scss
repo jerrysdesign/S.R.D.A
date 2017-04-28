@@ -13,9 +13,11 @@
 }
 .side-nav {
   @extend %nav;
-  > ul {
-    > li {
-      > a {
+  ul li ul {margin-left: 0;}
+  // level-1
+  .side-nav-primary {
+    & > li {
+      & > a {
         font-size: 18px;
         height: 56px;
         font-weight: bold;
@@ -40,6 +42,22 @@
           // height: 56px;
           // background-color: #717171;
         }
+        //level2
+
+      }
+      position: relative;
+      &.level-space {
+        &:after {
+          margin-left: 0;
+          content: '';
+          position: absolute;
+          margin-top: 5px;
+          border-left: 18px solid $colorGrayDark;
+          background-color: $colorGrayLightest;
+          width: 100%;
+          height: 2px;
+          @include pie-clearfix;
+        }
       }
     }
     li + li {
@@ -47,6 +65,12 @@
     }
   }
   .side-nav-secondary {
+    a {
+      color: $colorGrayDarker;
+      padding-left: 2em;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
     @extend .mt-20;
     li {
       margin-bottom: 0;
@@ -54,17 +78,221 @@
     li + li {
       margin-top: 10px;
     }
+    &.check-list {
+      & > li {
+        padding-left: 3em;
+      }
+    }
+    .level-space {
+      &:after {
+        content: '';
+        position: absolute;
+        margin-top: 5px;
+        border-left: 18px solid $colorGrayDark;
+        background-color: $colorGrayLightest;
+        width: 100%;
+        height: 2px;
+        @include pie-clearfix;
+      }
+    }
+  }
+  .side-nav-tertiary {
+    padding: 15px 0 15px 30px;
+
+    li {
+      & > a {
+        display: block;
+        padding-left: 20px;
+        background-image: url('../images/icon-arrow-right.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+      }
+    }
+
   }
   .utlility-link {
     @extend .mt-10;
     @extend %navbar;
     @extend %nav-fullwidth;
-    &:after {}
     a {
       color: $colorGrayDarker;
     }
   }
+
+  // .level-1-space {
+  //   margin-top: 5px;
+  //   border-left: 18px solid $colorGrayDark;
+  //   background-color: $colorGrayLightest;
+  //   width: 100%;
+  //   height: 2px;
+  //   @include pie-clearfix;
+  // }
 }
+.content-title + .gov-nav-grid {
+  margin-top: -30px;
+}
+.gov-nav-grid {
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid $colorGrayDark;
+  $susy: (
+    columns: 20,
+    gutters: 0,
+  );
+  @include container ();
+  ul {
+    margin: 0 auto;
+    li {
+      margin: 4px;
+      @include gallery(4 of 20);
+      a {
+        display: block;
+        background-color: $colorGray;
+        padding: 15px 20px;
+        color: white;
+        text-align: center;
+      }
+      &.active {
+        a {
+          background-color: $colorPrimary;
+        }
+      }
+    }
+  }
+}
+
+.tabs {
+  float: left;
+  li {
+    float: left;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    .active {
+      background-color: $colorGray;
+      border: 1px solid $colorGray;
+      color: white;
+    }
+  }
+  li + li {
+    // border-left: none;
+    margin-left: 5px;
+  }
+  li {
+    border: 1px solid $colorGrayLight;
+  }
+}
+.tab-container {
+  margin-top: -1px;
+  border: 1px solid $colorGrayLight;
+  border: 1px solid $colorGrayLight;
+  padding: 20px;
+  clear: both;
+  float: left;
+  overflow: auto;
+}
+
+
+$tabs-transition: 0.1s ease-in-out;
+$tabs-backgroundColor: white;
+.tabBlock {
+
+}
+
+.tabBlock-tabs {
+  @extend %oh;
+  li {
+    border: 1px solid $colorGrayLight;
+  }
+  li + li {
+    margin-left: 5px;
+  }
+}
+
+.tabBlock-tab {
+  background-color: $tabs-backgroundColor;
+  border: 1px solid $colorGrayLight;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  position: relative;
+  transition: $tabs-transition;
+  &.is-active {
+    background-color: $colorGray;
+    border: 1px solid $colorGray;
+    color: white;
+  }
+  .style-big & {
+    padding: 15px;
+    background-color: $colorGray;
+    color: white;
+    &.is-active {
+      background-color: $colorPrimary;
+      border: 1px solid $colorPrimary;
+    }
+  }
+}
+.tabBlock-content {
+  background-color: $tabs-backgroundColor;
+  margin-top: -1px;
+  border: 1px solid $colorGrayLight;
+  padding: 20px;
+  .style-big & {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+// ul.tabs li {
+//   float: left;
+//   margin: 0;
+
+//   padding: 0px 21px;
+//   height: 31px;
+//   line-height: 31px;
+//   border-top: 1px solid #333;
+//   border-left: 1px solid #333;
+//   border-bottom: 1px solid #333;
+//   background-color: #666;
+//   color: #ccc;
+//   overflow: hidden;
+//   position: relative;
+// }
+
+// .tab_last { border-right: 1px solid #333; }
+
+// ul.tabs li:hover {
+//   background-color: #ccc;
+//   color: #333;
+// }
+
+// ul.tabs li.active {
+//   background-color: #fff;
+//   color: #333;
+//   border-bottom: 1px solid #fff;
+//   display: block;
+// }
+
+// .tab_container {
+//   border: 1px solid #333;
+//   border-top: none;
+//   clear: both;
+//   float: left;
+//   width: 100%;
+//   background: #fff;
+//   overflow: auto;
+// }
+
+
+
 
 // $mainNavColor: #f2ebb0;
 // .main-nav {

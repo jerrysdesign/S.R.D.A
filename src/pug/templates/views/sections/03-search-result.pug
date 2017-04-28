@@ -1,6 +1,6 @@
 .content
   .block-1.search-result-panel
-    h2.content-title
+    h2.content-title.mb-40
       | 找資料 - 查詢結果
       nav.content-secondary-menu
         ul
@@ -25,56 +25,13 @@
             option option-3
         .unit-20
           button(class='btn unit-100') 查詢
-  .block-space-line
-    .page-utility
-      .row
-        .left
-          ul.forms-inline-list
-            li
-              | 每頁顯示筆數&nbsp;
-              select
-                option 10
-              | &nbsp;筆
-        .right
-          p
-            | 排序&nbsp;
-            select
-              option 釋出日期(最新)
-      .row
-        .left
-          p
-            | 顯示&nbsp;
-            span 1-10
-            | &nbsp;筆
-            | ,&nbsp;共&nbsp;
-            span XXXX
-            | &nbsp;筆
-        .right
-          ul.pagination
-            li.icon-first: a(href="#") &larr;
-            li.icon-previous: a(href="#") &larr;
-            li: span 1
-            li: a(href="#") 2
-            li: a(href="#") 3
-            li: a(href="#") 4
-            li: a(href="#") 5
-            li.icon-next: a(href="#") &rarr;
-            li.icon-last: a(href="#") &rarr;
+  .block-space-line-1
+    include page-utility
   -for (var i = 1; i < 10; i++)
-    .block-space-line
+    .block-space-line-1
       .search-resulr--info
-        h3
-          | C00041
-          a(href='javascript:;') 檳榔至癌資訊，風險知覺與台灣檳榔消費行為...
-        p XXX / XXXXXXXXXXXX
-        p 取得方式: 一般會員，院內會員直接下載
-        p
-          a.show-detail(href='javascript:;') 詳目顯示
-        nav(class='utility-nav')
-          ul
-            li.icon-recommend: a(href='javascript:;') 推薦
-            li: a(href='javascript:;') 線上分析
-            li.icon-addtracking: a(href='javascript:;') 加入追蹤
+        include search-resulr--info
+        include search-resulr--info__utility-nav
   .row
     .left
       p
