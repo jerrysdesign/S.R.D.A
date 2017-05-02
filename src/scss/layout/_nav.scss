@@ -249,8 +249,41 @@ $tabs-backgroundColor: white;
     padding-right: 0;
   }
 }
-
-
+.side-nav-right {
+  li a {
+    font-size: 16px;
+    background: $colorGrayLightest;
+    color: $colorGrayDarker;
+    display: inline-block;
+    position: relative;
+    margin: 5px 10px 5px 0;
+    padding: 5px 0 5px 10px !important;
+    height: 36px;
+    span {cursor: pointer;}
+    &:hover {
+      text-decoration: none !important;
+      background-color: $colorGrayDark;
+      span {
+        color: white !important;
+      }
+      &:after {
+        border-color: transparent transparent transparent $colorGrayDark;
+      }
+    }
+    &:after {
+      display: inline-block;
+      border: 18px solid;
+      border-color: transparent transparent transparent $colorGrayLightest;
+      height: 0;
+      width: 0;
+      position: absolute;
+      right: -36px;
+      top: 0;
+      content: "";
+      display: inline-block;
+    }
+  }
+}
 // ul.tabs li {
 //   float: left;
 //   margin: 0;

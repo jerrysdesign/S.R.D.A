@@ -1,0 +1,6 @@
+.table {
+  @extend %table-bordered;
+  th, td {
+    padding: 5px 10px;
+  }
+}

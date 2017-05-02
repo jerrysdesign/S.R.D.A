@@ -35,32 +35,38 @@ $gutter: 40px;
   @include pie-clearfix;
 }
 .row {
-	@include container;
+  @include container;
   @include pie-clearfix;
 }
 
 %left-col {
-	float: left;
-	margin-right: 0px;
-	display: inline;
+  float: left;
+  margin-right: 0px;
+  display: inline;
 }
 %right-col {
-	float: right;
-	margin-right: 0;
-	display: inline;
+  float: right;
+  margin-right: 0;
+  display: inline;
 }
 .side--left + .area {
-	width: $wrapper - $sidebar--right;
-	@extend %left-col;
-  padding-left: $gutter;
+  width: $wrapper - $sidebar--left - $gutter;
+  @extend %left-col;
+  margin-left: $gutter;
 }
-.side--right {
-	width: $sidebar--left;
-	@extend %right-col;
+.three-col .area {
+  width: $wrapper - ($sidebar--left + $sidebar--right) - ($gutter * 2);
+  @extend %left-col;
+  margin-left: $gutter;
 }
 .side--left {
-	width: $sidebar--right;
-	@extend %left-col;
+  width: $sidebar--left;
+  @extend %left-col;
+}
+.side--right {
+  width: $sidebar--right;
+  margin-left: $gutter;
+  @extend %right-col;
 }
 
 
@@ -74,44 +80,44 @@ $gutter: 40px;
 // complete
 
 // .side--left.banner-complate, .side--left.banner-tpp, , .side--left.banner-sun{
-// 	width: 330px;
-// 	@extend %left-col;
+//  width: 330px;
+//  @extend %left-col;
 // }
 // .banner-complate + .area, .banner-tpp + .area, .banner-sun + .area{
-// 	width: 650px;
-// 	@extend %right-col;
+//  width: 650px;
+//  @extend %right-col;
 // }
 // .search-complate, .search-life, .search-sun-book, .search-tpp, .search-sun {
-// 	margin-top: 0;
+//  margin-top: 0;
 // }
 
 //
 // .yasten-history__banner {
-// 	.search-utility {
-// 		width: 630px;
-// 		float: right;
-// 	}
-// 	.search-utility--seach {
-// 		background: none;
-// 	}
+//  .search-utility {
+//    width: 630px;
+//    float: right;
+//  }
+//  .search-utility--seach {
+//    background: none;
+//  }
 // }
 
 //
 // .sun-archives__banner {
-// 	.side--left.banner-complate {
-// 		width: auto;
-// 	}
-// 	.banner-complate + .area {
-// 		width: auto;
-// 		@extend %left-col;
-// 	}
+//  .side--left.banner-complate {
+//    width: auto;
+//  }
+//  .banner-complate + .area {
+//    width: auto;
+//    @extend %left-col;
+//  }
 // }
 
 
 // .block-e {
-// 	.side--left { width: 178px;}
-// 	.area {
-// 		margin-right: 0;
-// 		width: 774px;
-// 	}
+//  .side--left { width: 178px;}
+//  .area {
+//    margin-right: 0;
+//    width: 774px;
+//  }
 // }

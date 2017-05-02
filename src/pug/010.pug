@@ -1,0 +1,25 @@
+extends templates/layout
+
+
+//- Variables
+block append vars
+  - var lang                  = 'zh-Hant-TW'
+  - var pageTitle             = '| SRDA'
+  - var pageDescription       = '學術調查研究資料庫'
+  - var bodyClass             = ''
+
+
+block contentMain
+  include templates/views/sections/header
+  .container.three-col
+    .side--left
+      include templates/views/sections/sidemenu-level1-10
+    .area
+      include templates/views/sections/010-record
+    .side--right
+      include templates/views/sections/sidemenu-right
+
+
+  include templates/views/sections/footer
+  script(src='assets/js/vendor/jquery.min.js')
+  include templates/views/sections/search-dropdown-js
